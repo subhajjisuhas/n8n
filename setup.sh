@@ -46,7 +46,7 @@ mkdir -p "$N8N_DIR"
 cd "$N8N_DIR"
 
 # ====== Create docker-compose.yml ======
-cat <<'EOF' > docker-compose.yml
+cat <<EOF > docker-compose.yml
 version: "3.8"
 services:
   n8n:
