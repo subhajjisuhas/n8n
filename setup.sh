@@ -63,7 +63,7 @@ services:
 
       # Bind & protocol to ensure public IP access over HTTP
       - N8N_HOST=0.0.0.0
-      - N8N_PORT=5678
+      - N8N_PORT=8080
       - N8N_PROTOCOL=http
 
       # Recommended to avoid telemetry externally (optional)
