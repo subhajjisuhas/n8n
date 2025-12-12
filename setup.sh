@@ -1,25 +1,27 @@
 
-
 #!/bin/bash
+set -euo pipefail
 
 # Update system
-sudo apt update && sudo apt upgrade -y
+sudo apt update
+sudo apt -y upgrade
 
 # Install Docker
 echo "Installing Docker..."
-sudo apt install docker.io -y
+sudo apt -y install docker.io
 sudo systemctl enable docker
 sudo systemctl start docker
 
 # Install Docker Compose
 echo "Installing Docker Compose..."
-sudo apt install docker-compose -y
+sudo apt -y install docker-compose
 
 # Create n8n directory
-mkdir -p ~/n8n && cd ~/n8n
+mkdir -p "$HOME/n8n"
+cd "$HOME/n8n"
 
-# Create docker-compose.yml
-cat <<EOF > docker-compose.yml
+# Create docker-compose.yml (quoted heredoc to avoid interpolation)
+cat <<'EOF' > docker-compose.yml
 version: "3"
 services:
   n8n:
@@ -39,5 +41,9 @@ EOF
 echo "Starting n8n..."
 docker-compose up -d
 
-echo "✅ n8n is running at: http://$(
+IP_ADDR=$(hostname -I | awk '{print $1}')
+echo "✅ n8n is running at: http://$IP_ADDR:5678"
+echo "🔐 Basic auth: admin / admin123 (change in docker-compose.yml)"
+``
+
 
