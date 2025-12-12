@@ -50,7 +50,7 @@ cat <<EOF > docker-compose.yml
 version: "3.8"
 services:
   n8n:
-    image: mcp/n8n:latest
+    image: n8nio/n8n:latest
     container_name: n8n
     restart: always
     ports:
