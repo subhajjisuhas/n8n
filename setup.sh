@@ -1,4 +1,5 @@
 
+
 #!/bin/bash
 
 # Update system
@@ -38,4 +39,5 @@ EOF
 echo "Starting n8n..."
 docker-compose up -d
 
-echo "✅ n8n is running at http://<your-server-ip>:5678"
+echo "✅ n8n is running at: http://$(
+
