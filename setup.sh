@@ -54,7 +54,9 @@ services:
     container_name: n8n
     restart: always
     ports:
-      - "${N8N_PORT}:5678"
+      - "5678:5678"
+    env_file:
+      - .env
     environment:
       # Basic auth for local/public access - CHANGE THESE
       - N8N_BASIC_AUTH_ACTIVE=true
