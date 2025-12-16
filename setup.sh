@@ -55,13 +55,13 @@ services:
     restart: always
     ports:
       - "5678:5678"
-    env_file:
-      - .env
     environment:
       # Basic auth for local/public access - CHANGE THESE
       - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=${N8N_USER}
       - N8N_BASIC_AUTH_PASSWORD=${N8N_PASS}
+      - N8N_SECURE_COOKIE=false
+      - NODE_ENV=production
 
       # Bind & protocol to ensure public IP access over HTTP
       - N8N_HOST=0.0.0.0
